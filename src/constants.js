@@ -1,0 +1,1 @@
+export const exercises = ["walk", "jog", "liftWeights", "jumpingJacks", "push-ups"]
