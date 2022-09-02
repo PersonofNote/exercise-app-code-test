@@ -1,17 +1,15 @@
 import { useState } from 'react'
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
-import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
-import FormControl from '@mui/material/FormControl';
-import Select, { SelectChangeEvent } from '@mui/material/Select'
-import TextField, { TextFieldProps } from '@mui/material/TextField';
+import Select from '@mui/material/Select'
+import TextField from '@mui/material/TextField';
 
 function ExerciseSelect({addExercise}) {
     const [state, setState] = useState({
-        exercise: "",
-        minutes: 0,
-        interval: ""
+        exercise: "jog",
+        minutes: 15,
+        interval: "day"
       })
     
     const handleChange = e => {
@@ -21,15 +19,13 @@ function ExerciseSelect({addExercise}) {
           ...state,
           [e.target.name]: value
         });
-        console.log("STATE")
+        console.log("STATE In SELECTOR")
         console.log(state)
     };
     return(
 
-<Box sx={{ minWidth: 120 }}>
+<Box sx={{ minWidth: 200, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
 I would like to 
-<FormControl>
-    <InputLabel id="exercise-select-label">(Select exercise)</InputLabel>
     <Select
     name="exercise"
     labelId="exercise-select-label"
@@ -42,11 +38,9 @@ I would like to
     <MenuItem value={'jog'}>Jog</MenuItem>
     <MenuItem value={'swim'}>Swim</MenuItem>
     </Select>
-</FormControl>
 for 
-<TextField value={state.minutes} onChange={handleChange} name="minutes" inputProps={{ inputMode: 'numeric', pattern: '[0-9]*' }} />
+<TextField sx={{width: '50px'}} value={state.minutes} onChange={handleChange} name="minutes" inputProps={{ inputMode: 'numeric', pattern: '[0-9]*' }} />
 minutes every
-<InputLabel id="interval-select-label">(Select exercise)</InputLabel>
     <Select
         name="interval"
         labelId="interval-select-label"
