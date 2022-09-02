@@ -14,6 +14,10 @@ function OnBoarding() {
         setUserExercises(current => {return [state, ...current]});
         setShowForm(false)
     }, [])
+
+    const setUser = () => {
+        localStorage.setItem('user', JSON.stringify(userExercises))
+    }
         
   return (
     <main>
@@ -25,7 +29,7 @@ function OnBoarding() {
             <ExerciseDisplay exerciseList={userExercises} />
             {showForm && <ExerciseSelect addExercise={addExercise} />}
             {!showForm && <Button onClick={() => setShowForm(true)}> Add more</Button>}
-            {userExercises.length > 0 && <Button variant="contained">Done</Button>}
+            {userExercises.length > 0 && <Button onClick={setUser} size="large" variant="contained">Done</Button>}
         </Container>
     </main>
   );

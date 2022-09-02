@@ -8,18 +8,18 @@ function App() {
   const [user, setUser] = useState([]);
 
   useEffect(() => {
-    const userData = JSON.parse(localStorage.getItem('user'));
+    const userData = localStorage.getItem('user');
     if (user) {
-     setUser(userData);
+     setUser(JSON.parse(userData));
     }
-  }, [user]);
+  }, []);
 
   return (
     <div className="App">
       <nav>
         Placeholder
       </nav>
-      {user === null ? <OnBoarding /> : <Dashboard /> }
+      {user === null ? <OnBoarding /> : <Dashboard userData={user} /> }
     </div>
   );
 }
