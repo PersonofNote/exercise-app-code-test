@@ -29,7 +29,7 @@ function OnBoarding() {
             <ExerciseDisplay exerciseList={userExercises} />
             {showForm && <ExerciseSelect addExercise={addExercise} />}
             {!showForm && <Button onClick={() => setShowForm(true)}> Add more</Button>}
-            {userExercises.length > 0 && <Button onClick={setUser} size="large" variant="contained">Done</Button>}
+            {userExercises.length > 0 && <Button onClick={setUser} size="large" variant="contained">Done - Set Up My Account</Button>}
         </Container>
     </main>
   );
