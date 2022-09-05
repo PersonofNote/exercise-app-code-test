@@ -4,7 +4,6 @@ import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
 import Select from '@mui/material/Select'
 import TextField from '@mui/material/TextField';
-import {exerciseDataList} from '../constants'
 
 function ExerciseSelect({addExercise}) {
     const [state, setState] = useState({
@@ -15,7 +14,6 @@ function ExerciseSelect({addExercise}) {
     
     
     const handleChange = e => {
-        console.log(e.target.name)
         const value = e.target.value;
         setState({
           ...state,

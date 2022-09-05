@@ -36,7 +36,7 @@ const ExerciseProgress = (props) => {
   
     return (
         <div style={exerciseStyles}>
-            {exercise}
+            {exercise.toUpperCase()}
             <div style={containerStyles}>
                 <div style={barStyles}>
                 <span style={labelStyles}>{`${progress}%`}</span>

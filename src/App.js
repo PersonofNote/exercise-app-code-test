@@ -7,19 +7,21 @@ function App() {
 
   const [user, setUser] = useState([]);
 
+  const handleUser = (userData) => {
+    setUser(userData)
+  }
+
   useEffect(() => {
     const userData = localStorage.getItem('user');
+    console.log(user)
     if (user) {
-     setUser(JSON.parse(userData));
+     handleUser(JSON.parse(userData));
     }
   }, []);
 
   return (
     <div className="App">
-      <nav>
-        Placeholder
-      </nav>
-      {user === null ? <OnBoarding /> : <Dashboard userData={user} /> }
+      {user === null || user.length === 0 ? <OnBoarding /> : <Dashboard userData={user} handleUser={handleUser} /> }
     </div>
   );
 }
