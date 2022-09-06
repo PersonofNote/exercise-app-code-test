@@ -4,7 +4,7 @@ import ExerciseSelect from './ExerciseSelect';
 import ExerciseDisplay from './ExerciseDisplay';
 import '../index.css'
 
-function OnBoarding() {
+function OnBoarding({handleUser}) {
     const [userExercises, setUserExercises] = useState([])
     const [showForm, setShowForm] = useState(true);
 
@@ -15,8 +15,14 @@ function OnBoarding() {
         setShowForm(false)
     }, [])
 
+    const removeExercise = (e) => {
+        userExercises.length > 1 ? setUserExercises(userExercises.splice(e.target.value, 1)) : setUserExercises([])
+    }
+
     const setUser = () => {
         localStorage.setItem('user', JSON.stringify(userExercises))
+        const userData = localStorage.getItem('user');
+        handleUser(JSON.parse(userData));
         /* If we were hitting a backend we would want to include a username and password as well as an exercises object, and persist the response to localstorage with JWT
         fetch(urlOfBackend, {
             method: 'POST',
@@ -30,6 +36,7 @@ function OnBoarding() {
             return user;
         });
         */
+       
     }
         
   return (
@@ -39,7 +46,7 @@ function OnBoarding() {
             <p>Since this is a sample app, there won't be a full registration flow.</p>
             <p>But I'd still like to get an idea of your goals!</p>
             <p> (This app uses localStorage to keep track of your data.)</p>
-            <ExerciseDisplay exerciseList={userExercises} />
+            <ExerciseDisplay exerciseList={userExercises} removeExercise={removeExercise} />
             {showForm && <ExerciseSelect addExercise={addExercise} />}
             {!showForm && <Button onClick={() => setShowForm(true)}> Add more</Button>}
             {userExercises.length > 0 && <Button sx={{marginTop: '24px'}} onClick={setUser} size="large" variant="contained">Done - Set Up My Account</Button>}

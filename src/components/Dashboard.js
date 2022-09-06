@@ -39,6 +39,7 @@ function Dashboard({userData, handleUser}) {
     }
 
     useEffect(() => {
+        // I have set this to a low number to ensure a lot of < 100% results
         fetchRandom(`http://www.randomnumberapi.com/api/v1.0/random?min=1&max=20&count=${userData.length}`)
     }, []);
 
