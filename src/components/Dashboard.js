@@ -55,7 +55,7 @@ function Dashboard({userData, handleUser}) {
     
   return (
     <main>
-        <h1>Dashboard view</h1>
+        <h1>{timeFilter.toUpperCase()} VIEW</h1>
         {loading && (<p>Loading</p>)}
         <ButtonGroup variant="contained" aria-label="outlined primary button group">
             <Button value="day" onClick={handleClick}>Day</Button>
@@ -67,7 +67,7 @@ function Dashboard({userData, handleUser}) {
             margin: '2rem'
         }}>
         {!loading &&(exerciseList)}
-        {exerciseList.length < 1 && (
+        {!loading && exerciseList.length < 1 && (
             <div>You did not add any exercises for this time period</div>
         )}
         </Box>

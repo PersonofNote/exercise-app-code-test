@@ -13,9 +13,16 @@ function App() {
 
   useEffect(() => {
     const userData = localStorage.getItem('user');
-    console.log(user)
+    // IF BACKEND, we would have a username and password to compare against the db,
+    // or a jwt token to reconfirm that the logged-in user is valid
+    /*
+      fetch(backendUrl)
+        .then(response => response.json())
+        .then(data => setUser(userData));
+    */
     if (user) {
      handleUser(JSON.parse(userData));
+     console.log(user)
     }
   }, []);
 

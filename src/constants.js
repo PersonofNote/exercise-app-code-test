@@ -4,8 +4,5 @@ import FitnessCenterIcon from '@mui/icons-material/FitnessCenter';
 import AccessibilityNewIcon from '@mui/icons-material/AccessibilityNew';
 import PoolIcon from '@mui/icons-material/Pool';
 
-// export const exerciseDataList = {"walk" : <DirectionsWalkIcon />, "jog": <DirectionsRunIcon/>, "liftWeights": <FitnessCenterIcon/>, "jumpingJacks": <AccessibilityNewIcon/>, "swim": <PoolIcon/>}
 
-//export const exerciseDataList = {"jog": "DirectionsRunIcon", "swim": "PoolIcon"}
-
-export const exerciseDataList = {"jog": {"color" : "blue"}, "swim": {"color": "red"} }
+export const exerciseDataList = {"jog": {"color" : "#F0609E" }, "swim": {"color": "#FBAD18"}, "liftWeights": {"color": "turquoise", "formattedName" : "lift weights"} }

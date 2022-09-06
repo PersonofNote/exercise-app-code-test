@@ -17,6 +17,19 @@ function OnBoarding() {
 
     const setUser = () => {
         localStorage.setItem('user', JSON.stringify(userExercises))
+        /* If we were hitting a backend we would want to include a username and password as well as an exercises object, and persist the response to localstorage with JWT
+        fetch(urlOfBackend, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ username, password, userExercises, etc... })
+          })
+        .then(response => response.json())
+        .then(res => {
+            // store user details and jwt token in local storage to keep user logged in between page refreshes
+            localStorage.setItem('user', JSON.stringify(res));
+            return user;
+        });
+        */
     }
         
   return (
@@ -29,7 +42,7 @@ function OnBoarding() {
             <ExerciseDisplay exerciseList={userExercises} />
             {showForm && <ExerciseSelect addExercise={addExercise} />}
             {!showForm && <Button onClick={() => setShowForm(true)}> Add more</Button>}
-            {userExercises.length > 0 && <Button onClick={setUser} size="large" variant="contained">Done - Set Up My Account</Button>}
+            {userExercises.length > 0 && <Button sx={{marginTop: '24px'}} onClick={setUser} size="large" variant="contained">Done - Set Up My Account</Button>}
         </Container>
     </main>
   );

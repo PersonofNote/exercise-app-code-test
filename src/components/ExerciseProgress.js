@@ -1,6 +1,9 @@
+import { exerciseDataList } from "../constants";
 
 const ExerciseProgress = (props) => {
-    const { bgcolor, exercise, progress } = props;
+    const { bgcolor, exercise, progress } = props; // Demonstrating object destructuring method of obtaining progs
+
+    const exerciseName = exerciseDataList[exercise].formattedName ? exerciseDataList[exercise].formattedName : exercise
 
     const exerciseStyles = {
         display: 'flex',
@@ -36,7 +39,7 @@ const ExerciseProgress = (props) => {
   
     return (
         <div style={exerciseStyles}>
-            {exercise.toUpperCase()}
+            {exerciseName.toUpperCase()}
             <div style={containerStyles}>
                 <div style={barStyles}>
                 <span style={labelStyles}>{`${progress}%`}</span>
