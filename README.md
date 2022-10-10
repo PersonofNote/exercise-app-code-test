@@ -32,6 +32,3 @@ Use at least one shared component in multiple places
 Stretch goals
 
 Add unit test coverage
-Prepping for the tech interview
-
-Be prepared to run the code, debug, and talk about what it’s doing and the reasoning behind it. We would specifically want to see some examples of code you’ve written that for instance: is readable, is maintainable, is extendable, follows modern programming principles, is covered by automated tests, etc. Be able to point out code where you were specifically adhering to a common principle/practice and why.
